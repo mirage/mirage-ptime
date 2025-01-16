@@ -1,5 +1,5 @@
-/*
- * Copyright (c) 2010 Anil Madhavapeddy <anil@recoil.org>
+(*
+ * Copyright (c) 2015 Matt Gray <matthew.thomas.gray@gmail.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -12,22 +12,6 @@
  * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
- */
+ *)
 
-#include "solo5.h"
-
-#include <sys/time.h>
-
-#include <caml/mlvalues.h>
-#include <caml/alloc.h>
-#include <caml/memory.h>
-#include <caml/fail.h>
-
-// caml_get_monotonic_time is already defined in mirage-solo5
-
-CAMLprim value
-caml_get_wall_clock(value v_unit)
-{
-  CAMLparam1(v_unit);
-  CAMLreturn(caml_copy_int64(solo5_clock_wall()));
-}
+include Ptime_clock

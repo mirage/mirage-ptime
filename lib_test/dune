@@ -1,4 +1,4 @@
 (test
  (name portable)
- (package mirage-clock)
- (libraries mirage-clock))
+ (package mirage-ptime)
+ (libraries mirage-ptime))

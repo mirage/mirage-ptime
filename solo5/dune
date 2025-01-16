@@ -1,25 +1,25 @@
 (library
- (name mirage_clock_solo5)
- (public_name mirage-clock.solo5)
- (implements mirage-clock)
+ (name mirage_ptime_solo5)
+ (public_name mirage-ptime.solo5)
+ (implements mirage-ptime)
  (foreign_stubs
   (language c)
-  (names clock_stubs)))
+  (names mirage_ptime_stubs)))
 
 (rule
- (target clock_stubs.c)
+ (target mirage_ptime_stubs.c)
  (enabled_if
   (<> %{context_name} "solo5"))
  (deps
-  (:src clock_stubs.default.c))
+  (:src mirage_ptime_stubs.default.c))
  (action
   (copy %{src} %{target})))
 
 (rule
- (target clock_stubs.c)
+ (target mirage_ptime_stubs.c)
  (enabled_if
   (= %{context_name} "solo5"))
  (deps
-  (:src clock_stubs.solo5.c))
+  (:src mirage_ptime_stubs.solo5.c))
  (action
   (copy %{src} %{target})))

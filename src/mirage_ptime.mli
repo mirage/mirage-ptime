@@ -13,8 +13,18 @@
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *)
+(** {2 POSIX clock}
 
-external elapsed_ns : unit -> int64 = "ocaml_monotonic_clock_elapsed_ns"
+    Clock counting time since the Unix epoch. Subject to adjustment by e.g. NTP. *)
 
-let elapsed_ns _ = elapsed_ns ()
-let period_ns _ = None
+val now : unit -> Ptime.t
+(** [now_d_ps ()] is the current POSIX time. *)
+
+val current_tz_offset_s : unit -> int option
+(** [current_tz_offset_s ()] is the clock's current local time zone offset to
+    UTC in seconds, if known. This is the duration local time - UTC time in
+    seconds. *)
+
+val period : unit -> Ptime.span option
+(** [period ()] is a positive POSIX time span representing the clock'd period
+    (if available). *)

@@ -1,13 +1,5 @@
 (library
- (name mirage_clock_unix)
- (public_name mirage-clock.unix)
- (implements mirage-clock)
- (libraries unix)
- (foreign_stubs
-  (language c)
-  (flags
-   (:standard \ -Wall -g -O2))
-  (names clock_stubs))
- (c_library_flags
-  (:standard
-   (:include ../config/cclib.sexp))))
+ (name mirage_ptime_unix)
+ (public_name mirage-ptime.unix)
+ (implements mirage-ptime)
+ (libraries ptime.clock.os))

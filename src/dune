@@ -1,5 +1,6 @@
 (library
- (name mirage_clock)
- (public_name mirage-clock)
- (virtual_modules mirage_clock)
- (default_implementation mirage-clock.unix))
+ (name mirage_ptime)
+ (public_name mirage-ptime)
+ (libraries ptime)
+ (virtual_modules mirage_ptime)
+ (default_implementation mirage-ptime.unix))
