@@ -1,0 +1,11 @@
+(library
+ (name mirage_ptime_set)
+ (public_name mirage-ptime.set)
+ (modules mirage_ptime_set))
+
+(library
+ (name mirage_ptime_mock)
+ (public_name mirage-ptime.mock)
+ (implements mirage-ptime)
+ (libraries mirage-ptime.set)
+ (modules mirage_ptime))

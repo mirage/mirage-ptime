@@ -13,18 +13,33 @@
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *)
-(** {2 POSIX clock}
-
-    Clock counting time since the Unix epoch. Subject to adjustment by e.g. NTP. *)
+(** {1 POSIX clock} *)
 
 val now : unit -> Ptime.t
 (** [now_d_ps ()] is the current POSIX time. *)
+
+val period : unit -> Ptime.span option
+(** [period ()] is a positive POSIX time span representing the clock'd period
+    (if available). *)
+
+(** {1 System time zone offset} *)
 
 val current_tz_offset_s : unit -> int option
 (** [current_tz_offset_s ()] is the clock's current local time zone offset to
     UTC in seconds, if known. This is the duration local time - UTC time in
     seconds. *)
 
-val period : unit -> Ptime.span option
-(** [period ()] is a positive POSIX time span representing the clock'd period
-    (if available). *)
+(** {1 POSIX clock raw interface} *)
+
+val now_d_ps : unit -> int * int64
+(** [now_d_ps ()] is [(d, ps)] representing POSIX time occuring at
+    [d] * 86'400e12 + [ps] POSIX picoseconds from the epoch
+    1970-01-01 00:00:00 UTC. [ps] is in the range
+    \[[0];[86_399_999_999_999_999L]\].
+
+    Raises {!Sys_error}, see {{!err}error handling} *)
+
+val period_d_ps : unit -> (int * int64) option
+(** [period_d_ps ()] is if available [Some (d, ps)] representing the
+    clock's picosecond period [d] * 86'400e12 + [ps]. [ps] is in the
+    range \[[0];[86_399_999_999_999_999L]\]. *)
