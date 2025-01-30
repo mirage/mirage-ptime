@@ -1,3 +1,9 @@
+### v5.0.0 (2025-01-30)
+
+* Renamed to mirage-ptime (from mirage-clock), only the PCLOCK part
+* Use Ptime.t directly in the interface
+* use "dune variants" for the different implementations
+
 ### v4.2.0 (2022-03-27)
 
 * Rename the freestanding toolchain to solo5 (@dinosaure, #51)
