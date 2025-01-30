@@ -15,11 +15,7 @@
  *)
 
 let now () = Ptime.v !Mirage_ptime_set.now
-
 let now_d_ps () = !Mirage_ptime_set.now
-
 let current_tz_offset_s () = !Mirage_ptime_set.tz_off
-
 let period () = Option.map Ptime.Span.v !Mirage_ptime_set.period
-
 let period_d_ps () = !Mirage_ptime_set.period
