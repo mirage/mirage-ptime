@@ -1,0 +1,5 @@
+(library
+ (name mirage_ptime_unikraft)
+ (public_name mirage-ptime.unikraft)
+ (implements mirage-ptime)
+ (libraries ptime.clock.os))
