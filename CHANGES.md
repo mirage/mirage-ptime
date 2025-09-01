@@ -1,3 +1,7 @@
+### v5.1.0 (2025-09-01)
+
+* Add support for unikraft (#1 @shym @Firobe @fabbing)
+
 ### v5.0.0 (2025-01-30)
 
 * Renamed to mirage-ptime (from mirage-clock), only the PCLOCK part
