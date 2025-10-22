@@ -1,3 +1,8 @@
+### v5.2.0 (2025-10-22)
+
+* Fix the compilation of the solo5 sublibrary with the host compiler
+  (#2 @dinosaure)
+
 ### v5.1.0 (2025-09-01)
 
 * Add support for unikraft (#1 @shym @Firobe @fabbing)
